@@ -13,12 +13,15 @@ public class Main {
         g1.setName("Folk");
         g2.setName("Rock");
 
-        Musica m1 = new Musica("Highway",g2,3);
-        Musica m2 = new Musica("Carry On",g2,3);
-
-        System.out.println(m1.getGenero().getName());
 
 
+
+        Artist artist1 = new Artist("Angra","angra@mail.com",Plan1);
+        Musica m1 = new Musica("Highway",g2,3,artist1);
+        Musica m2 = new Musica("Carry On",g2,3,artist1);
+        artist1.setMusicas(m1);
+        artist1.setMusicas(m2);
+        artist1.showResourcesGranted();
 
         User u1 = new User_Free("Jose","jose@google.com",Plan1);
         User u2 = new User_Premium("Carlos","carlos@google.com",Plan2);
