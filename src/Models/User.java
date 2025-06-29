@@ -3,7 +3,7 @@ package Models;
 public abstract class User {
     protected String name;
     protected String email;
-    protected SubscriptionPlan subscription_type;
+    protected SubscriptionPlan subscription_type; // Relationship 1:1 - One User have one plain
 
     public User(String name, String email, SubscriptionPlan subscription_type) {
         this.name = name;
