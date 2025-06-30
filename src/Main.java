@@ -49,7 +49,7 @@ public class Main {
 
         System.out.println("Mostrando Quais são as playlist que cada musica esta presente");
 
-        m3.showPlaylistWhereMusicisPresent();
+        m2.showPlaylistWhereMusicisPresent();
 
     }
 }

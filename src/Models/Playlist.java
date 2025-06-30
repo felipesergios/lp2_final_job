@@ -29,8 +29,8 @@ public class Playlist {
         this.musicas.add(musicas);
     }
     public void showPlaylistInfo(){
-        System.out.println("Playlist : "+name+"\n" +
-                "Lenght of Musics : "+musicas.toArray().length);
+        System.out.println("Name : "+name+"\n" +
+                "length of playlist  : "+musicas.toArray().length);
     }
     public void showPlaylistMusics(){
         for (Musica musica : musicas) {
