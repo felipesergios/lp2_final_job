@@ -10,6 +10,31 @@ public abstract class User {
         this.email = email;
         this.subscription_type = subscription_type;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public SubscriptionPlan getSubscription_type() {
+        return subscription_type;
+    }
+
+    public void setSubscription_type(SubscriptionPlan subscription_type) {
+        this.subscription_type = subscription_type;
+    }
+
     public void showUserInfo(){
         System.out.println("Fully Name : "+name+"\nE-mail : "+email+"Plan Type:"+subscription_type.getName()+"\n");
     }

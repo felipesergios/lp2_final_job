@@ -2,7 +2,7 @@ package Models;
 
 public class User_Premium extends User{
 
-    public User_Premium(String name, String email, SubscriptionPlan subscription_type) {
+    public User_Premium(String name, String email,SubscriptionPlan subscription_type) {
         super(name, email, subscription_type);
     }
 
