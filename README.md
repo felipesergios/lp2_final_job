@@ -89,3 +89,65 @@ classDiagram
     Playlist --> Musica : has-many
     User --> SubscriptionPlan : has-a
 ```
+
+# 📌 Project Structure
+
+Current source directories and files from this project is consistent this :
+
+```
+.
+├── out
+│   └── production
+│       └── untitled
+│           ├── Controllers
+│           │   ├── GenreController.class
+│           │   ├── MusicController.class
+│           │   ├── PlaylistController.class
+│           │   ├── SubscriptionPlanController.class
+│           │   └── UserController.class
+│           ├── Main.class
+│           ├── Models
+│           │   ├── Artist.class
+│           │   ├── Genre.class
+│           │   ├── Music.class
+│           │   ├── Playlist.class
+│           │   ├── SubscriptionPlan.class
+│           │   ├── User.class
+│           │   ├── User_Free.class
+│           │   └── User_Premium.class
+│           └── Runners
+│               ├── GenreTestMain.class
+│               ├── MusicTestMain.class
+│               ├── PlaylistTestMain.class
+│               ├── SubscriptionPlanTestMain.class
+│               └── UserTestMain.class
+├── README.md
+├── src
+│   ├── Controllers
+│   │   ├── GenreController.java
+│   │   ├── MusicController.java
+│   │   ├── PlaylistController.java
+│   │   ├── SubscriptionPlanController.java
+│   │   └── UserController.java
+│   ├── Main.java
+│   ├── Models
+│   │   ├── Artist.java
+│   │   ├── Genre.java
+│   │   ├── Music.java
+│   │   ├── Playlist.java
+│   │   ├── SubscriptionPlan.java
+│   │   ├── User_Free.java
+│   │   ├── User.java
+│   │   └── User_Premium.java
+│   └── Runners
+│       ├── GenreTestMain.java
+│       ├── MusicTestMain.java
+│       ├── PlaylistTestMain.java
+│       ├── SubscriptionPlanTestMain.java
+│       └── UserTestMain.java
+└── untitled.iml
+
+11 directories, 40 files
+```
+
+The source "Runners" only used for tests in developer mode
