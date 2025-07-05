@@ -28,5 +28,5 @@ public class SubscriptionPlanController {
         if(subscription_plan != null){subscriptionPlanList.remove(subscription_plan);return true;}
         return false;
     }
-    
+
 }
