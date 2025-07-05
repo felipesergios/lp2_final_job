@@ -31,8 +31,8 @@ public class UserTestMain {
                     String tipo = scanner.nextLine();
 
                     User user = tipo.equalsIgnoreCase("premium")
-                            ? new User_Premium(nome, email , new SubscriptionPlan())
-                            : new User_Free(nome, email,new SubscriptionPlan());
+                            ? new User_Premium(nome, email , new SubscriptionPlan(tipo))
+                            : new User_Free(nome, email,new SubscriptionPlan(tipo));
 
                     service.store(user);
                     System.out.println("Usuário adicionado!");

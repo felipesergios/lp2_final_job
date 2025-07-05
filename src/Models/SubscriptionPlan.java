@@ -4,6 +4,10 @@ public class SubscriptionPlan {
     String name;
     String price;
 
+    public SubscriptionPlan(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }

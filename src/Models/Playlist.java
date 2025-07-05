@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Playlist {
     private String name;
-    private List<Musica> musicas;
+    private List<Music> music;
 
     public Playlist(String name) {
         this.name = name;
-        this.musicas = new ArrayList<>();
+        this.music = new ArrayList<>();
 
     }
 
@@ -21,20 +21,20 @@ public class Playlist {
         this.name = name;
     }
 
-    public List<Musica> getMusicas() {
-        return musicas;
+    public List<Music> getMusicas() {
+        return music;
     }
 
-    public void setMusicas(Musica musicas) {
-        this.musicas.add(musicas);
+    public void setMusicas(Music musicas) {
+        this.music.add(musicas);
     }
     public void showPlaylistInfo(){
         System.out.println("Name : "+name+"\n" +
-                "length of playlist  : "+musicas.toArray().length);
+                "length of playlist  : "+ music.toArray().length);
     }
     public void showPlaylistMusics(){
-        for (Musica musica : musicas) {
-            System.out.println("- " + musica.name + "-"+musica.getGenre().name);
+        for (Music music : this.music) {
+            System.out.println("- " + music.name + "-"+ music.getGenre().name);
         }
     }
 }

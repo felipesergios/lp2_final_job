@@ -3,14 +3,14 @@ package Models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Musica {
+public class Music {
     String name;
     Genre genre;
     int duration;
     Artist artist;
     private List<Playlist> playlists;
 
-    public Musica(String name, Genre genre, int duration, Artist artist) {
+    public Music(String name, Genre genre, int duration, Artist artist) {
         this.name = name;
         this.genre = genre;
         this.duration = duration;
