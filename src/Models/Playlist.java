@@ -34,7 +34,7 @@ public class Playlist {
     }
     public void showPlaylistMusics(){
         for (Musica musica : musicas) {
-            System.out.println("- " + musica.name + "-"+musica.getGenero().name);
+            System.out.println("- " + musica.name + "-"+musica.getGenre().name);
         }
     }
 }

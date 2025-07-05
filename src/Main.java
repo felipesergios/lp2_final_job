@@ -1,55 +1,70 @@
-import Models.*;
+import Controllers.GenreController;
+import Models.Genre;
+
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        SubscriptionPlan Plan1 = new SubscriptionPlan();
-        SubscriptionPlan Plan2 = new SubscriptionPlan();
-        Plan1.setName("FREE");
-        Plan1.setPrice("00.00");
-        Plan2.setName("Premium");
-        Plan2.setPrice("19.90");
-        Genero g1 = new Genero();
-        Genero g2 = new Genero();
-        g1.setName("Folk");
-        g2.setName("Rock");
-        g2.setName("RAP"); // Try Update Method
+        GenreController genreController = new GenreController();
+        Scanner scanner = new Scanner(System.in);
+        int option;
 
+        do {
+            System.out.println("\n--- GÊNEROS ---");
+            System.out.println("1. Listar gêneros");
+            System.out.println("2. Adicionar gênero");
+            System.out.println("3. Mostrar gênero por nome");
+            System.out.println("4. Remover gênero");
+            System.out.println("0. Sair");
+            System.out.print("Escolha: ");
+            option = scanner.nextInt();
+            scanner.nextLine(); // limpar buffer
 
+            switch (option) {
+                case 1:
+                    System.out.println("\nGêneros cadastrados:");
+                    for (Genre genre : genreController.index()) {
+                        System.out.println("- " + genre.getName());
+                    }
+                    break;
 
+                case 2:
+                    System.out.print("Nome do gênero: ");
+                    String name = scanner.nextLine();
+                    genreController.store(new Genre(name));
+                    System.out.println("Gênero adicionado!");
+                    break;
 
-        Artist artist1 = new Artist("Angra","angra@mail.com",Plan1);
-        Musica m1 = new Musica("Highway",g2,3,artist1);
-        Musica m2 = new Musica("Carry On",g2,3,artist1);
-        Musica m3 = new Musica("All eyes on Me ",g2,3,artist1);
-        artist1.setMusicas(m1);
-        artist1.setMusicas(m2);
-        artist1.showResourcesGranted();
+                case 3:
+                    System.out.print("Nome do gênero para mostrar: ");
+                    String search = scanner.nextLine();
+                    Genre found = genreController.show(search);
+                    if (found != null) {
+                        System.out.println("Gênero encontrado: " + found.getName());
+                    } else {
+                        System.out.println("Gênero não encontrado.");
+                    }
+                    break;
 
-        User u1 = new User_Free("Jose","jose@google.com",Plan1);
-        User u2 = new User_Premium("Carlos","carlos@google.com",Plan2);
+                case 4:
+                    System.out.print("Nome do gênero para remover: ");
+                    String removeName = scanner.nextLine();
+                    if (genreController.delete(removeName)) {
+                        System.out.println("Gênero removido.");
+                    } else {
+                        System.out.println("Gênero não encontrado.");
+                    }
+                    break;
 
-        u2.showUserInfo();
-        u2.showResourcesGranted();
+                case 0:
+                    System.out.println("Encerrando...");
+                    break;
 
-        Playlist play_1 = new Playlist("Musicas para treinar");
-        Playlist play_2 = new Playlist("Musicas para GYM");
-        play_1.setMusicas(m1);
-        play_1.setMusicas(m2);
-        play_2.setMusicas(m1);
-        play_2.setMusicas(m2);
-        play_2.setMusicas(m3);
-        m1.setPlaylists(play_1);
-        m2.setPlaylists(play_1);
-        m2.setPlaylists(play_2);
-        m3.setPlaylists(play_2);
+                default:
+                    System.out.println("Opção inválida.");
+            }
+        } while (option != 0);
 
-        play_1.setName("Musicas para treinar");
-        play_1.showPlaylistInfo();
-        play_1.showPlaylistMusics();
-
-        System.out.println("Mostrando Quais são as playlist que cada musica esta presente");
-
-        m2.showPlaylistWhereMusicisPresent();
-
+        scanner.close();
     }
 }

@@ -5,14 +5,14 @@ import java.util.List;
 
 public class Musica {
     String name;
-    Genero genero;
+    Genre genre;
     int duration;
     Artist artist;
     private List<Playlist> playlists;
 
-    public Musica(String name, Genero genero, int duration, Artist artist) {
+    public Musica(String name, Genre genre, int duration, Artist artist) {
         this.name = name;
-        this.genero = genero;
+        this.genre = genre;
         this.duration = duration;
         this.artist = artist;
         this.playlists = new ArrayList<>();
@@ -26,12 +26,12 @@ public class Musica {
         this.name = name;
     }
 
-    public Genero getGenero() {
-        return genero;
+    public Genre getGenre() {
+        return genre;
     }
 
-    public void setGenero(Genero genero) {
-        this.genero = genero;
+    public void setGenero(Genre genero) {
+        this.genre = genero;
     }
 
     public int getDuration() {

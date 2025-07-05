@@ -14,7 +14,7 @@ public class Artist extends User {
     public void showResourcesGranted() {
         System.out.println("Músicas cadastradas para o artista : ");
         for (Musica musica : musicas) {
-            System.out.println("- " + musica.name + "--"+musica.getGenero().name);
+            System.out.println("- " + musica.name + "--"+musica.getGenre().name);
         }
     }
 
