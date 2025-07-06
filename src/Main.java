@@ -3,6 +3,7 @@ import Controllers.SubscriptionPlanController;
 import Controllers.UserController;
 import Models.Genre;
 import Models.User;
+import Runners.RunnerGenre;
 import Runners.RunnerSubscriptionPlan;
 import Runners.RunnerUser;
 import java.util.Scanner;
@@ -21,8 +22,9 @@ public class Main {
             System.out.println("\n--- MENU PRINCIAL ---");
             System.out.println("1. Usuários");
             System.out.println("2. Planos de inscrição");
-            System.out.println("3. Músicas");
-            System.out.println("4. Playlists");
+            System.out.println("3. Gêneros Musicais");
+            System.out.println("4. Músicas");
+            System.out.println("5. Playlists");
             System.out.println("0. Sair");
             System.out.print("Escolha: ");
             option = scanner.nextInt();
@@ -40,14 +42,8 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.print("Nome do gênero para mostrar: ");
-                    String search = scanner.nextLine();
-                    Genre found = genreController.show(search);
-                    if (found != null) {
-                        System.out.println("Gênero encontrado: " + found.getName());
-                    } else {
-                        System.out.println("Gênero não encontrado.");
-                    }
+                    System.out.print("\nCarregando sub-programa de Generos Musicais: ");
+                    RunnerGenre.main(genreController);
                     break;
 
                 case 4:

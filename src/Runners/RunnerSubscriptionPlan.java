@@ -14,8 +14,8 @@ public class RunnerSubscriptionPlan {
             System.out.println("===SUB-PROGRAMA-ADM-SUB-PLANS-===" +
                     "\n1.->ADICIONAR NOVO PLANO DE SUBINSCRIÇÃO" +
                     "\n2.->LISTAR PLANOS DISPONÍVEIS" +
-                    "\n3.->ATUALIZAR USUÁRIO" +
-                    "\n4.->REMOVER USUÁRIO" +
+                    "\n3.->ATUALIZAR UM PLANO" +
+                    "\n4.->REMOVER UM PLANO" +
                     "\n0.->SAIR DO SUBPROGRAMA E VOLTAR AO MENU INICIAL");
             selector = scanner.nextInt();
             scanner.nextLine();
