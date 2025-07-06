@@ -15,6 +15,11 @@ public class GenreController {
         }
         return null;
     }
+    public boolean update(String name,String newName){
+        Genre genre = show(name);
+        if(genre != null){genre.setName(newName);return true;}
+        return false;
+    }
     public boolean delete(String name){
         Genre genre = show(name);
         if (genre != null){genres.remove(genre);return true;}
