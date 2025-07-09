@@ -1,7 +1,7 @@
 package Runners;
+
 import Controllers.SubscriptionPlanController;
 import Models.SubscriptionPlan;
-
 
 import java.util.Scanner;
 
@@ -19,52 +19,79 @@ public class RunnerSubscriptionPlan {
                     "\n0.->SAIR DO SUBPROGRAMA E VOLTAR AO MENU INICIAL");
             selector = scanner.nextInt();
             scanner.nextLine();
-            switch (selector){
+
+            switch (selector) {
                 case 1:
-                    System.out.println("Informe o nome do plano :\n");
-                    String name_plain = scanner.nextLine();
-                    System.out.println("Qual o preço desse plano ? :\n");
-                    String price_new_plain = scanner.nextLine();
-                    SubscriptionPlan new_plain = new SubscriptionPlan(name_plain);
-                    new_plain.setPrice(price_new_plain);
-                    subscriptionPlanController.store(new_plain);
-                    System.out.println("Plano cadastrado !");
+                    try {
+                        System.out.println("Informe o nome do plano:");
+                        String namePlan = scanner.nextLine();
+                        System.out.println("Qual o preço desse plano?");
+                        String priceNewPlan = scanner.nextLine();
+
+                        SubscriptionPlan newPlan = new SubscriptionPlan(namePlan);
+                        newPlan.setPrice(priceNewPlan);
+                        subscriptionPlanController.store(newPlan);
+
+                        System.out.println("Plano cadastrado com sucesso!");
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Erro: " + e.getMessage());
+                    } catch (Exception e) {
+                        System.out.println("Erro inesperado ao cadastrar plano. Detalhes: " + e.getMessage());
+                    }
                     break;
 
                 case 2:
-                    for (SubscriptionPlan data : subscriptionPlanController.index()) {
-                        System.out.println(data.getName() + " | Preço: " + data.getPrice());
+                    try {
+                        for (SubscriptionPlan data : subscriptionPlanController.index()) {
+                            System.out.println(data.getName() + " | Preço: " + data.getPrice());
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Erro ao listar planos: " + e.getMessage());
                     }
                     break;
 
                 case 3:
-                    System.out.print("Digite o nome atual do plano: ");
-                    String nomeAtual = scanner.nextLine();
-                    System.out.print("Digite o novo nome do plano: ");
-                    String novoNome = scanner.nextLine();
-                    boolean atualizado = subscriptionPlanController.update(nomeAtual, novoNome);
-                    if (atualizado) {
-                        System.out.println("Plano atualizado com sucesso.");
-                    } else {
-                        System.out.println("Plano não encontrado.");
+                    try {
+                        System.out.print("Digite o nome atual do plano: ");
+                        String currentName = scanner.nextLine();
+                        System.out.print("Digite o novo nome do plano: ");
+                        String newName = scanner.nextLine();
+
+                        boolean updated = subscriptionPlanController.update(currentName, newName);
+                        if (updated) {
+                            System.out.println("Plano atualizado com sucesso.");
+                        }
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Erro: " + e.getMessage());
+                    } catch (Exception e) {
+                        System.out.println("Erro inesperado ao atualizar plano. Detalhes: " + e.getMessage());
                     }
                     break;
 
                 case 4:
-                    System.out.print("Digite o nome do plano que deseja remover: ");
-                    String nomeRemover = scanner.nextLine();
-                    boolean removido = subscriptionPlanController.delete(nomeRemover);
-                    if (removido) {
-                        System.out.println("Plano removido com sucesso.");
-                    } else {
-                        System.out.println("Plano não encontrado.");
+                    try {
+                        System.out.print("Digite o nome do plano que deseja remover: ");
+                        String nameToRemove = scanner.nextLine();
+
+                        boolean removed = subscriptionPlanController.delete(nameToRemove);
+                        if (removed) {
+                            System.out.println("Plano removido com sucesso.");
+                        }
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Erro: " + e.getMessage());
+                    } catch (Exception e) {
+                        System.out.println("Erro inesperado ao remover plano. Detalhes: " + e.getMessage());
                     }
                     break;
 
+                case 0:
+                    System.out.println("Saindo...");
+                    break;
+
                 default:
-                    System.out.println("Opção Invalida!");
+                    System.out.println("Opção inválida!");
                     break;
             }
-        }while (selector != 0);
+        } while (selector != 0);
     }
 }

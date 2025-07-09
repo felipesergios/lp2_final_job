@@ -8,25 +8,32 @@ public class SubscriptionPlanController {
 
     public List<SubscriptionPlan> index(){return subscriptionPlanList;}
 
-    public void store(SubscriptionPlan subscription_plan){subscriptionPlanList.add(subscription_plan);}
+    public void store(SubscriptionPlan subscription_plan){
+        for (SubscriptionPlan data : subscriptionPlanList){
+            if(data.getName().equalsIgnoreCase(subscription_plan.getName())){
+                throw new IllegalArgumentException("O Plano de inscrição com o nome '" + subscription_plan.getName() + "' já existe na base !!!.");
+            }
+        }
+        subscriptionPlanList.add(subscription_plan);
+    }
 
     public SubscriptionPlan show(String name){
         for (SubscriptionPlan subscription_plan : subscriptionPlanList){
             if(subscription_plan.getName().equalsIgnoreCase(name)){return subscription_plan;}
         }
-        return null;
+        throw new IllegalArgumentException("O Plano de inscrição com o nome '" + name + "' não foi encontrado.");
     }
 
     public boolean update(String name, String newName){
         SubscriptionPlan subscription_plan = show(name);
-        if(subscription_plan != null){subscription_plan.setName(newName);return true;}
-        return false;
+        subscription_plan.setName(name);
+        return true;
     }
 
     public boolean delete(String name){
         SubscriptionPlan subscription_plan = show(name);
-        if(subscription_plan != null){subscriptionPlanList.remove(subscription_plan);return true;}
-        return false;
+        subscriptionPlanList.remove(subscription_plan);
+        return true;
     }
 
 }

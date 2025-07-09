@@ -101,6 +101,6 @@ public class RunnerUser {
             }
         } while (selector != 0);
 
-        //scanner.close(); // pode causar NoSuchElementException se reusado fora daqui
+
     }
 }
