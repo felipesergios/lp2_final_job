@@ -31,52 +31,76 @@ public class RunnerUser {
                             "F->Free\n" +
                             "P->Premium");
                     String tipo = scanner.nextLine();
-                    if (tipo.equalsIgnoreCase("A")){
-                        User user = new Artist(name,email,new SubscriptionPlan(tipo));
+
+                    try {
+                        User user;
+
+                        if (tipo.equalsIgnoreCase("A")) {
+                            user = new Artist(name, email, new SubscriptionPlan(tipo));
+                        } else if (tipo.equalsIgnoreCase("P")) {
+                            user = new User_Premium(name, email, new SubscriptionPlan(tipo));
+                        } else {
+                            user = new User_Free(name, email, new SubscriptionPlan(tipo));
+                        }
+
                         userController.store(user);
-                        System.out.println("Cadastro De Artista Realizado");
-                    } else if (tipo.equalsIgnoreCase("P")) {
-                        User user = new User_Premium(name,email,new SubscriptionPlan(tipo));
-                        userController.store(user);
-                        System.out.println("Cadastro De Usuario premium Realizado");
-                    } else {
-                        User user = new User_Free(name,email,new SubscriptionPlan(tipo));
-                        userController.store(user);
-                        System.out.println("Cadastro De Usuario free Realizado");
+                        System.out.println("Cadastro de usuário realizado com sucesso.");
+
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Erro ao cadastrar usuário: " + e.getMessage());
+                    } catch (Exception e) {
+                        System.out.println("Erro inesperado ao cadastrar usuário. Detalhes: " + e.getMessage());
                     }
                     break;
+
                 case 2:
                     for (User u : userController.index()) {
                         System.out.println(u.getName() + " - " + u.getEmail() + " (" + u.getSubscription_type().getName() + ")");
                     }
                     break;
+
                 case 3:
                     System.out.println("Informe o e-mail do usuário a ser atualizado: ");
                     String emailToUpdate = scanner.nextLine();
-                    System.out.println("Informe o novo valor para o nome do usuário :");
-                    String name_update = scanner.nextLine();
-                    if(userController.update(emailToUpdate,name_update)){
-                        System.out.println("Usuário atualizado");
-                    }else{
-                        System.out.println("falha na atualização");
+                    System.out.println("Informe o novo valor para o nome do usuário:");
+                    String nameUpdate = scanner.nextLine();
+
+                    try {
+                        if (userController.update(emailToUpdate, nameUpdate)) {
+                            System.out.println("Usuário atualizado com sucesso.");
+                        }
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Erro: " + e.getMessage());
+                    } catch (Exception e) {
+                        System.out.println("Erro inesperado ao atualizar usuário. Detalhes: " + e.getMessage());
                     }
+                    break;
+
                 case 4:
                     System.out.println("Informe o e-mail do usuário a ser deletado: ");
                     String emailToDelete = scanner.nextLine();
-                    if(userController.delete(emailToDelete)){
-                        System.out.println("Usuário Deletado");
-                    }else{
-                        System.out.println("falha no delete");
+
+                    try {
+                        if (userController.delete(emailToDelete)) {
+                            System.out.println("Usuário deletado com sucesso.");
+                        }
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Erro: " + e.getMessage());
+                    } catch (Exception e) {
+                        System.out.println("Erro inesperado ao deletar usuário. Detalhes: " + e.getMessage());
                     }
+                    break;
+
                 case 0:
                     System.out.println("SAINDO...");
                     break;
+
                 default:
-                    System.out.println("Opção inválida");
+                    System.out.println("Opção inválida.");
                     break;
             }
         } while (selector != 0);
 
-        //scanner.close(); // Boa prática: fechar o scanner
+        //scanner.close(); // pode causar NoSuchElementException se reusado fora daqui
     }
 }
