@@ -1,4 +1,4 @@
-package Runners;
+package Tests;
 
 import Controllers.MusicController;
 import Controllers.UserController;

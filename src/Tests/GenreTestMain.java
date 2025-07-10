@@ -1,4 +1,4 @@
-package Runners;
+package Tests;
 
 import Controllers.GenreController;
 import Models.Genre;
