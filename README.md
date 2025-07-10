@@ -115,7 +115,13 @@ Current source directories and files from this project is consistent this :
 │           │   ├── User.class
 │           │   ├── User_Free.class
 │           │   └── User_Premium.class
-│           └── Runners
+│           ├── Runners
+│           │   ├── RunnerGenre.class
+│           │   ├── RunnerMusic.class
+│           │   ├── RunnerPlaylist.class
+│           │   ├── RunnerSubscriptionPlan.class
+│           │   └── RunnerUser.class
+│           └── Tests
 │               ├── GenreTestMain.class
 │               ├── MusicTestMain.class
 │               ├── PlaylistTestMain.class
@@ -139,7 +145,13 @@ Current source directories and files from this project is consistent this :
 │   │   ├── User_Free.java
 │   │   ├── User.java
 │   │   └── User_Premium.java
-│   └── Runners
+│   ├── Runners
+│   │   ├── RunnerGenre.java
+│   │   ├── RunnerMusic.java
+│   │   ├── RunnerPlaylist.java
+│   │   ├── RunnerSubscriptionPlan.java
+│   │   └── RunnerUser.java
+│   └── Tests
 │       ├── GenreTestMain.java
 │       ├── MusicTestMain.java
 │       ├── PlaylistTestMain.java
@@ -147,7 +159,7 @@ Current source directories and files from this project is consistent this :
 │       └── UserTestMain.java
 └── untitled.iml
 
-11 directories, 40 files
+13 directories, 50 files
 ```
 
 The source "Runners" only used for tests in developer mode
