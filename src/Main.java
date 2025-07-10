@@ -1,9 +1,11 @@
 import Controllers.GenreController;
+import Controllers.PlaylistController;
 import Controllers.SubscriptionPlanController;
 import Controllers.UserController;
 import Models.Genre;
 import Models.User;
 import Runners.RunnerGenre;
+import Runners.RunnerPlaylist;
 import Runners.RunnerSubscriptionPlan;
 import Runners.RunnerUser;
 import java.util.Scanner;
@@ -13,8 +15,11 @@ public class Main {
         UserController userController = new UserController();
         SubscriptionPlanController subscriptionPlanController = new SubscriptionPlanController();
         RunnerUser runnerUser = new RunnerUser();
+        RunnerPlaylist runnerPlaylist = new RunnerPlaylist();
         RunnerSubscriptionPlan runnerSubscriptionPlan = new RunnerSubscriptionPlan();
         GenreController genreController = new GenreController();
+        PlaylistController playlistController = new PlaylistController();
+
         Scanner scanner = new Scanner(System.in);
         int option;
 
@@ -52,6 +57,9 @@ public class Main {
                         System.out.println(u.getName() + " - " + u.getEmail() + " (" + u.getSubscription_type().getName() + ")");
                     }
                     break;
+                case 5:
+                    System.out.print("\nCarregando sub-programa de Playlist: ");
+                    RunnerPlaylist.main(playlistController);
 
                 case 0:
                     System.out.println("Encerrando...");
