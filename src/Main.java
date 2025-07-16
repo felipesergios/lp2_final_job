@@ -16,8 +16,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
 
-        int option = -1; // Iniciar a variavel com qualquer valor negativo, fora do escopo pra não fechar o programa
-        //Principal
+        int option = -1; //start variable with any negative value 
         do {
             showMenu();
             try {

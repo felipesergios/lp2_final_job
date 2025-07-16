@@ -7,7 +7,7 @@ public class UserController {
     private List<User> users = new ArrayList<>();
 
     public List<User> index(){
-        return users; //Read
+        return users;
     }
     public User show(String email) {
         for (User user : users) {

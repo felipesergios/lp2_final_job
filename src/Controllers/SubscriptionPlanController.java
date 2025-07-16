@@ -20,6 +20,7 @@ public class SubscriptionPlanController {
     public SubscriptionPlan show(String name){
         for (SubscriptionPlan subscription_plan : subscriptionPlanList){
             if(subscription_plan.getName().equalsIgnoreCase(name)){return subscription_plan;}
+            //problema quando tem espaço
         }
         throw new IllegalArgumentException("O Plano de inscrição com o nome '" + name + "' não foi encontrado.");
     }

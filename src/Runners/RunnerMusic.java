@@ -29,13 +29,13 @@ public class RunnerMusic {
                     System.out.println("Informe o nome da música:");
                     String musicName = scanner.nextLine();
                     System.out.println("Informe o gênero da música:");
-                    String genreName = scanner.nextLine(); // Criar um gênero ou pegar um existente
-                    Genre genre = new Genre(genreName); // Você pode mudar isso conforme a lógica do seu código
+                    String genreName = scanner.nextLine();
+                    Genre genre = new Genre(genreName);
                     System.out.println("Informe a duração da música (em segundos):");
                     int duration = scanner.nextInt();
-                    scanner.nextLine();  // Limpar buffer
-                    System.out.println("Informe o nome do artista:");
-                    String artistName = scanner.nextLine(); // Criar ou pegar um artista existente
+                    scanner.nextLine();
+                    System.out.println("Informe o e-mail do artista:");
+                    String artistName = scanner.nextLine();
                     System.out.println("Quer adicionar essa música a alguma playlist agora ? \nS/N ?");
                     String reply = scanner.nextLine();
                     String playlist_name = null;
@@ -48,7 +48,7 @@ public class RunnerMusic {
                     User search_user = userController.show(artistName);
                     Artist artist = new Artist(search_user.getName(), search_user.getEmail(), search_user.getSubscription_type());
                     Music music = new Music(musicName, genre, duration, artist);
-                    music.setPlaylists(playlistController.show(playlist_name)); //seta a musica a uma playlist
+                    music.setPlaylists(playlistController.show(playlist_name)); //link playlist to music [1:1] (N:M)
 
                     try {
 

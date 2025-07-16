@@ -18,7 +18,7 @@ public class RunnerUser {
                     "\n4.->REMOVER USUÁRIO" +
                     "\n0.->SAIR DO SUBPROGRAMA E VOLTAR AO MENU INICIAL");
             selector = scanner.nextInt();
-            scanner.nextLine(); // limpa o buffer
+            scanner.nextLine();
 
             switch (selector) {
                 case 1:
